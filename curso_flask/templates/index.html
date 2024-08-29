@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: brown;
+            color: wheat;
+            
+        }
+        table{
+            
+            background-color: black;
+            color: black;
+            border-bottom: 10px;
+            border-color: black;
+            align-items: center;
+            
+            
+        }
+        th{
+            background-color: gray;
+            
+            border: 1px;
+            padding: 8px;
+        }
+        tr{
+            background-color: rgb(219, 219, 219);
+            padding: 8px;
+            
+        }
+        td{
+           
+            padding: 8px;
+        }
+        a{
+            color: red;
+        }
+        
+    </style>
+    
+</head>
+<body>
+
+<h1>Lista todos os contatos</h1>
+<br>
+
+<table border="1px">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+        {%for contato in contatos%}
+        <tr>
+            <td>
+                {{contato.nome}}
+            </td>
+            <td>
+                {{contato.telefone}}
+            </td>
+            <td>
+                {{contato.email}}
+            </td>
+            <td >
+                EDITAR | <a href="{{ url_for('delete_contact', idpessoa= contato.idpessoa)}}">EXCLUIR</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </thead>
+</table>
+
+</body>
+</html>
